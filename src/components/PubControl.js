@@ -44,9 +44,19 @@ class PubControl extends React.Component {
     this.setState({
       masterKegMenu: newMasterKegMenu,
       selectedKeg: null
-    })
+    });
   }
 
+  handleEditKegInMenu = (kegToEdit) => {
+    const editedMasterKegMenu = this.state.masterKegMenu
+    .filter(keg => keg.id !== this.state.selectedKeg.id)
+    .concat(kegToEdit);
+    this.setState({
+      masterKegMenu: editedMasterKegMenu,
+      editing: false,
+      selectedKeg: null
+    })
+  }
 
 
 
