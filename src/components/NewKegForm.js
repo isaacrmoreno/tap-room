@@ -15,7 +15,7 @@ function NewKegForm(props) {
       formSubmissionHandler={handleNewKegFormSubmission}
       buttonText="Submit"/>
     </React.Fragment>
-  )
+  );
 }
 
 NewKegForm.propTypes = {

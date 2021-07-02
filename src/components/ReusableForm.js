@@ -33,7 +33,7 @@ function ReusableForm(props) {
 
 ReusableForm.propTypes = {
   formSubmissionHandler: PropTypes.func,
-  button: PropTypes.string
+  buttonText: PropTypes.string
 }
 
 export default ReusableForm;

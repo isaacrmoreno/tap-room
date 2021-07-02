@@ -1,8 +1,8 @@
 import React from 'react';
-import KegDetail from './KegDetail';
 import NewKegForm from './NewKegForm';
-import EditKegForm from './EditKegForm';
 import Menu from './Menu';
+import KegDetail from './KegDetail';
+import EditKegForm from './EditKegForm';
 class PubControl extends React.Component {
 
   constructor(props) {
@@ -38,7 +38,7 @@ class PubControl extends React.Component {
   }
 
   handleChangeSelectedKeg = (id) => {
-    const selectedKeg = this.state.masterKegMenu.filter(keg => keg.id === id[0]);
+    const selectedKeg = this.state.masterKegMenu.filter(keg => keg.id === id)[0];
     this.setState({selectedKeg: selectedKeg})
   }
 
@@ -66,13 +66,15 @@ class PubControl extends React.Component {
     let buttonText = null;
 
     if (this.state.editing) {
-      currentlyVisibleState = <EditKegForm keg = {this.state.selectedKeg} onEditKeg = {this.handleEditClickInMenu}/>
+      currentlyVisibleState = <EditKegForm keg = {this.state.selectedKeg} onEditKeg = {this.handleEditKegInMenu}/>
       buttonText = "Return to Menu";
     } else if (this.state.selectedKeg != null) {
-      currentlyVisibleState = <KegDetail keg = {this.state.selectedKeg} onClickDelete = {this.handleDeleteKeg} onClickEdit = {this.handleEditClick}/>
+      currentlyVisibleState = <KegDetail keg = {this.state.selectedKeg} 
+      onClickDelete = {this.handleDeleteKeg} 
+      onClickEdit = {this.handleEditClick}/>
       buttonText = "Return to Menu";
     } else if (this.state.formVisibleOnPage) {
-      currentlyVisibleState = <NewKegForm onNewKegCreation={this.state.handleAddNewKegToMenu}/>
+      currentlyVisibleState = <NewKegForm onNewKegCreation={this.handleAddNewKegToMenu}/>
       buttonText = "Return to Menu";
     } else {
       currentlyVisibleState = <Menu menu={this.state.masterKegMenu} onKegSelection={this.handleChangeSelectedKeg}/>
