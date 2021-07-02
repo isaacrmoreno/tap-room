@@ -25,7 +25,11 @@ class PubControl extends React.Component {
     }
   }
 
-  
+  handleEditClick = () => {
+    this.setState({editing: true});
+  }
+
+
 
 
 
