@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Brorand from 'brorand';
 
 function Keg(props) {
   return (
@@ -14,7 +13,7 @@ function Keg(props) {
 
 Keg.propTypes = {
   name: PropTypes.string,
-  Brand: PropTypes.string,
+  brand: PropTypes.string,
   price: PropTypes.string, 
   alcoholContent: PropTypes.string
 };
