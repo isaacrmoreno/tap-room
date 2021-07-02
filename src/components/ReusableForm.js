@@ -26,7 +26,6 @@ function ReusableForm(props) {
         placeholder='ABV:'
         />
         <button type='submit'>{props.buttonText}</button>
-        <input/>
       </form>
     </React.Fragment>
   )
