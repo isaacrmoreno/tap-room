@@ -6,7 +6,7 @@ class PubControl extends React.Component {
     super(props)
     this.state = {
       formVisibleOnPage: false,
-      masterKegList: [],
+      masterKegMenu: [],
       selectedKeg: null,
     };
   }
@@ -27,6 +27,11 @@ class PubControl extends React.Component {
 
   handleEditClick = () => {
     this.setState({editing: true});
+  }
+
+  handleAddNewKegToMenu = (newKeg) => {
+    const newMasterKegMenu = this.state.masterKegMenu.concat(newKeg);
+    this.setState({masterKegMenu: newMasterKegMenu, formVisibleOnPage: false});
   }
 
 
