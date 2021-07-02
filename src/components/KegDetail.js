@@ -7,8 +7,8 @@ function kegDetail(props) {
   return (
     <React.Fragment>
       <h1>Keg Detail</h1>
-      <h3>{props.name} | Brand: {props.brand} | Price: ABV: </h3>
-
+      <h3>{props.name} | Brand: {props.brand} | Price: {props.price} ABV: {props.alcoholContent} </h3>
+      <hr/>
       <button onClick = { props.onClickingEdit}>Edit Keg Details</button>
       <button onClick = {() => onClickingDelete(keg.id)}>Remove Keg</button>
     </React.Fragment>
