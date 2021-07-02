@@ -8,10 +8,13 @@ function Menu(props) {
       <hr/>
       {props.menu.map((keg) =>
       <Keg
+      whenKegClicked = {props.onKegSelection}
       name={keg.name}
       brand={keg.brand}
       price={keg.price}
       alcoholContent={keg.alcoholContent}
+      id={keg.id}
+      key={keg.id}
       />
       )}
     </React.Fragment>
@@ -19,7 +22,8 @@ function Menu(props) {
 } 
 
 Menu.propTypes = {
-  menu: PropTypes.array
+  menu: PropTypes.array,
+  onKegSelection: PropTypes.func
 };
 
 export default Menu;
