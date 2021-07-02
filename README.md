@@ -1,8 +1,6 @@
 <h1 align="center">
 🍻 Tap Room Le Royal 👑</h1>
 
-<hr style="height: 1px; border:none; color:#333; background" />
-
 ### By Isaac Moreno 👨‍💻
 
 Click [here](https://github.com/isaacrmoreno/tap-room) to view project.
@@ -11,8 +9,6 @@ Click [here](https://github.com/isaacrmoreno/tap-room) to view project.
 
 React site to practice adding CRUD functionality with state
 
-<hr style="height: 1px; border:none; color:#333;" />
-
 # Prerequisites 🖥️
 
 - A text editor like [VScode](https://code.visualstudio.com/) | [Atom](https://atom.io/) | [Sublime](https://www.sublimetext.com/)
@@ -20,16 +16,18 @@ React site to practice adding CRUD functionality with state
 
 # Setup/Installation Instructions 📁
 
-1. Clone the repository: `% git clone https://github.com/isaacrmoreno/project-name`
-2. Navigate to the `project-name` directory on your computer
+1. Clone the repository: `% git clone https://github.com/isaacrmoreno/tap-room`
+2. Navigate to the `tap-room` directory on your computer
 3. Open with your preferred text editor to view code
 4. To start a development server and view project in the browser:
-   - Navigate to `project-name` in your command line
+   - Navigate to `tap-room` in your command line
    - Run command `npm install` to install dependencies
    - Optional: Run command `npm run build` to bundle files
    - Finally, run the command `npm run start` to start a development server
 
-<hr style="height: 1px; border:none; color:#333;" />
+# Component Tree 🌲
+
+![Screen Shot 2021-07-02 at 9 29 20 AM](https://user-images.githubusercontent.com/76987846/124306213-f3bfd480-db1a-11eb-8dec-0133f4215a11.png)
 
 # Bugs 🐛
 
