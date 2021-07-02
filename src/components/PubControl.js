@@ -58,6 +58,13 @@ class PubControl extends React.Component {
     })
   }
 
+  render() {
+    return (
+      <React.Fragment>
+        
+      </React.Fragment>
+    )
+  }
 
 
 
@@ -66,3 +73,5 @@ class PubControl extends React.Component {
 
 
 } 
+
+export default PubControl;
