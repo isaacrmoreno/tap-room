@@ -1,5 +1,8 @@
 import React from 'react';
-
+import KegDetail from './KegDetail';
+import NewKegForm from './NewKegForm';
+import EditKegForm from './EditKegForm';
+import Menu from './Menu';
 class PubControl extends React.Component {
 
   constructor(props) {
@@ -59,19 +62,29 @@ class PubControl extends React.Component {
   }
 
   render() {
+    let currentlyVisibleState = null;
+    let buttonText = null;
+
+    if (this.state.editing) {
+      currentlyVisibleState = <EditKegForm keg = {this.state.selectedKeg} onEditKeg = {this.handleEditClickInMenu}/>
+      buttonText = "Return to Menu";
+    } else if (this.state.selectedKeg != null) {
+      currentlyVisibleState = <KegDetail keg = {this.state.selectedKeg} onClickDelete = {this.handleDeleteKeg} onClickEdit = {this.handleEditClick}/>
+      buttonText = "Return to Menu";
+    } else if (this.state.formVisibleOnPage) {
+      currentlyVisibleState = <NewKegForm onNewKegCreation={this.state.handleAddNewKegToMenu}/>
+      buttonText = "Return to Menu";
+    } else {
+      currentlyVisibleState = <Menu menu={this.state.masterKegMenu} onKegSelection={this.handleChangeSelectedKeg}/>
+      buttonText = "Add Keg";
+    }
     return (
       <React.Fragment>
-        
+        {currentlyVisibleState}   
+        <button onClick={this.handleClick}>{buttonText}</button>
       </React.Fragment>
     )
   }
-
-
-
-
-
-
-
 } 
 
 export default PubControl;
