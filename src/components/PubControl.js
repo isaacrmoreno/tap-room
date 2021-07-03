@@ -51,22 +51,6 @@ class PubControl extends React.Component {
     });
   }
 
-
-
-  // decrementPint = (id) => {
-  //   const sellPint = this.state.pint.filter(keg => keg.id ===id)[0];
-  //   this.setState({
-  //     pints: sellPint - 1
-  // })
-  //   console.log(this.state.pints)
-  // }
-
-
-//   const sellPint = (pints -1)
-//   console.log(pints)
-//   return sellPint;
-// }
-
   handleEditKegInMenu = (kegToEdit) => {
     const editedMasterKegMenu = this.state.masterKegMenu
     .filter(keg => keg.id !== this.state.selectedKeg.id)
@@ -78,6 +62,18 @@ class PubControl extends React.Component {
     })
   }
 
+  handleSellPint = (id) => {
+    const selectedKeg = this.state.masterKegMenu.filter(keg => keg.id === id)[0];
+    if (selectedKeg.pints >= 1) {
+      selectedKeg.pints--;
+      this.setState({
+        masterKegMenu: this.state.masterKegMenu,
+        editing: false,
+        selectedKeg: null
+      })
+    }
+  }
+  
   render() {
     let currentlyVisibleState = null;
     let buttonText = null;
@@ -88,14 +84,15 @@ class PubControl extends React.Component {
     } else if (this.state.selectedKeg != null) {
       currentlyVisibleState = <KegDetail keg = {this.state.selectedKeg} 
       onClickDelete = {this.handleDeleteKeg} 
-      onClickEdit = {this.handleEditClick}
-      onClickSellPint = {this.decrementPint}/>
+      onClickEdit = {this.handleEditClick}/>
       buttonText = "Return to Menu";
     } else if (this.state.formVisibleOnPage) {
       currentlyVisibleState = <NewKegForm onNewKegCreation={this.handleAddNewKegToMenu}/>
       buttonText = "Return to Menu";
     } else {
-      currentlyVisibleState = <Menu menu={this.state.masterKegMenu} onKegSelection={this.handleChangeSelectedKeg}/>
+      currentlyVisibleState = <Menu menu={this.state.masterKegMenu}
+      onKegSelection={this.handleChangeSelectedKeg}
+      onClickSellPint={this.handleSellPint}/>
       buttonText = "Add Keg";
     }
 
@@ -103,7 +100,6 @@ class PubControl extends React.Component {
       <React.Fragment>
         {currentlyVisibleState}
         <button onClick={this.handleClick}>{buttonText}</button>
-        
       </React.Fragment>
     )
   }

@@ -9,10 +9,12 @@ function Menu(props) {
       {props.menu.map((keg) =>
       <Keg
       whenKegClicked = {props.onKegSelection}
+      onClickSellPint={props.onClickSellPint}
       name={keg.name}
       brand={keg.brand}
       price={keg.price}
       alcoholContent={keg.alcoholContent}
+      pints={keg.pints}
       id={keg.id}
       key={keg.id}
       />
@@ -23,7 +25,8 @@ function Menu(props) {
 
 Menu.propTypes = {
   menu: PropTypes.array,
-  onKegSelection: PropTypes.func
+  onKegSelection: PropTypes.func,
+  onClickSellPint: PropTypes.func
 };
 
 export default Menu;
